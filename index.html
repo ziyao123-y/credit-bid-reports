@@ -1,143 +1,903 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>信用评级招标公告日报 - 2026年4月9日</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f6fa;color:#2c3e50;padding:24px 16px}
-    .container{max-width:720px;margin:0 auto}
-    .header{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;border-radius:16px;padding:28px 24px;margin-bottom:20px;text-align:center}
-    .header h1{font-size:22px;font-weight:700;margin:8px 0 4px}
-    .header .date{font-size:14px;opacity:.85}
-    .summary-bar{display:flex;justify-content:center;gap:24px;margin-top:16px}
-    .summary-item{text-align:center}
-    .summary-item .num{font-size:28px;font-weight:800}
-    .summary-item .label{font-size:12px;opacity:.8}
-    .card{background:#fff;border-radius:14px;margin-bottom:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07)}
-    .card-header{display:flex;align-items:center;padding:14px 18px;border-bottom:1px solid #f0f0f0;gap:10px;flex-wrap:wrap}
-    .tag{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap}
-    .tag-new{background:#e8f5e9;color:#2e7d32}
-    .tag-result{background:#e3f2fd;color:#1565c0}
-    .tag-other{background:#fff8e1;color:#f57f17}
-    .card-header .title{font-size:15px;font-weight:700;color:#1a1a2e;flex:1;line-height:1.5}
-    .card-body{padding:14px 18px}
-    table{width:100%;border-collapse:collapse}
-    td{padding:7px 0;font-size:14px;vertical-align:top;border-bottom:1px solid #f5f5f5}
-    td:last-child{border-bottom:none}
-    .lc{color:#888;width:88px;font-weight:500;white-space:nowrap}
-    .vc{color:#2c3e50}
-    .hl{background:#fff9c4;padding:1px 6px;border-radius:4px;font-weight:600}
-    .hlb{background:#bbdefb;padding:1px 6px;border-radius:4px;font-weight:600}
-    .mtag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600}
-    .mo{background:#e8f5e9;color:#2e7d32}
-    .mc{background:#e3f2fd;color:#1565c0}
-    .note{background:#f8f9fa;border-left:4px solid #1a73e8;border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;color:#555;margin-top:16px;line-height:1.7}
-    .footer{text-align:center;margin-top:24px;padding:16px;color:#aaa;font-size:12px}
-    .footer hr{border:none;border-top:1px solid #eee;margin-bottom:12px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用评级招标公告日报 - 历史汇总</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #0f1724 0%, #1a2744 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 48px 40px;
+            margin-bottom: 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: white;
+            font-size: 12px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-meta {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Overview */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .stat-num {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 26px; }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 24px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-list {
+            list-style: none;
+        }
+
+        .date-item {
+            margin-bottom: 4px;
+        }
+
+        .date-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .date-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: white;
+        }
+
+        .date-link.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4));
+            color: white;
+            font-weight: 600;
+        }
+
+        .date-link .arrow {
+            opacity: 0;
+            transition: all 0.2s;
+        }
+
+        .date-link:hover .arrow,
+        .date-link.active .arrow {
+            opacity: 1;
+        }
+
+        /* Content Area */
+        .content-area {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .content-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+            padding: 28px 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .content-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .content-header .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .content-body {
+            padding: 32px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .section-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ef4444; box-shadow: 0 0 12px rgba(239, 68, 68, 0.5); }
+        .dot-orange { background: #f97316; box-shadow: 0 0 12px rgba(249, 115, 22, 0.5); }
+        .dot-green { background: #22c55e; box-shadow: 0 0 12px rgba(34, 197, 94, 0.5); }
+        .dot-blue { background: #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.5); }
+
+        /* Item Cards */
+        .item-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .item-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.1);
+            transform: translateX(8px);
+        }
+
+        .item-card.new {
+            border-left: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .item-card .tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .tag-new {
+            background: #ef4444;
+            color: white;
+        }
+
+        .tag-ongoing {
+            background: #f97316;
+            color: white;
+        }
+
+        .tag-done {
+            background: #22c55e;
+            color: white;
+        }
+
+        .item-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+            padding-right: 100px;
+            line-height: 1.5;
+        }
+
+        .item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .meta-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.8);
+        }
+
+        .meta-chip.org { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+        .meta-chip.method { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+        .meta-chip.date { background: rgba(249, 115, 22, 0.2); color: #fdba74; }
+
+        .item-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .item-desc strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .money {
+            color: #4ade80;
+            font-weight: 700;
+        }
+
+        /* Summary Table */
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .summary-table th {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+        }
+
+        .summary-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: rgba(255,255,255,0.85);
+        }
+
+        .summary-table tr:hover td {
+            background: rgba(255,255,255,0.03);
+        }
+
+        .summary-table tr.new-row td {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .summary-table .project-name {
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            background: transparent;
+        }
+
+        .nav-tab:hover {
+            color: white;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px;
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .empty-state .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
 </head>
 <body>
 <div class="container">
 
-<div class="header">
-  <div style="font-size:38px">📢</div>
-  <h1>信用评级招标公告日报</h1>
-  <div class="date">2026年4月9日 · 星期四</div>
-  <div class="summary-bar">
-    <div class="summary-item"><div class="num">2</div><div class="label">新招标公告</div></div>
-    <div class="summary-item"><div class="num">1</div><div class="label">成交公告</div></div>
-    <div class="summary-item"><div class="num">1</div><div class="label">其他公告</div></div>
-  </div>
+    <!-- Header -->
+    <div class="header fade-in">
+        <div class="header-badge">🔍 自动化监控 · 每日更新</div>
+        <h1>📋 信用评级招标公告日报</h1>
+        <div class="header-meta">
+            历史汇总 · 永久存档 · 微信直接访问
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row fade-in delay-1">
+        <div class="stat-card">
+            <div class="stat-num">2</div>
+            <div class="stat-label">今日新发布</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">近期进行中</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-label">近期已成交</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">5</div>
+            <div class="stat-label">监测平台</div>
+        </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+
+        <!-- Sidebar -->
+        <div class="sidebar fade-in delay-2">
+            <div class="sidebar-section">
+                <div class="sidebar-title">📅 历史报告</div>
+                <ul class="date-list">
+                    <li class="date-item">
+                        <a href="credit-rating-bid-report-20260410.html" class="date-link active">
+                            <span>2026-04-10</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="credit-rating-bid-report-20260409.html" class="date-link">
+                            <span>2026-04-09</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">📌 快速导航</div>
+                <ul class="date-list">
+                    <li class="date-item">
+                        <a href="#today-new" class="date-link">
+                            <span>🔥 今日新发布</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="#ongoing" class="date-link">
+                            <span>📌 进行中</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="#completed" class="date-link">
+                            <span>✅ 已成交</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="#summary" class="date-link">
+                            <span>📊 汇总表</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">🔗 常用平台</div>
+                <ul class="date-list">
+                    <li class="date-item">
+                        <a href="https://www.bidcenter.com.cn/" target="_blank" class="date-link">
+                            <span>采招网</span>
+                            <span style="font-size:11px;opacity:0.5">↗</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="https://www.ahtba.org.cn/" target="_blank" class="date-link">
+                            <span>安徽招标</span>
+                            <span style="font-size:11px;opacity:0.5">↗</span>
+                        </a>
+                    </li>
+                    <li class="date-item">
+                        <a href="http://bulletin.cebpubservice.com/" target="_blank" class="date-link">
+                            <span>招标公共服务平台</span>
+                            <span style="font-size:11px;opacity:0.5">↗</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area fade-in delay-3">
+
+            <!-- Content Header -->
+            <div class="content-header">
+                <h2>📋 2026年4月10日（周五）报告</h2>
+                <div class="date-badge">
+                    <span>📅 监测日期</span>
+                    <span>·</span>
+                    <span>生成时间 11:00</span>
+                </div>
+            </div>
+
+            <div class="content-body">
+
+                <!-- Navigation Tabs -->
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('all')">全部</button>
+                    <button class="nav-tab" onclick="showTab('new')">🔥 今日新</button>
+                    <button class="nav-tab" onclick="showTab('ongoing')">📌 进行中</button>
+                    <button class="nav-tab" onclick="showTab('done')">✅ 已成交</button>
+                </div>
+
+                <!-- Today's New -->
+                <div id="today-new" class="section tab-content active" data-category="new">
+                    <div class="section-title">
+                        <span class="section-dot dot-red"></span>
+                        🔥 今日新发布（2026-04-10）
+                    </div>
+
+                    <div class="item-card new">
+                        <span class="tag tag-new">今日发布</span>
+                        <div class="item-title">合肥兴泰资本管理有限公司选聘2026年度主体信用评级机构项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 合肥兴泰资本管理有限公司</span>
+                            <span class="meta-chip method">⚡ 比选</span>
+                            <span class="meta-chip date">📅 2026-04-10</span>
+                        </div>
+                        <div class="item-desc">
+                            选聘有资质的信用评级机构，为合肥兴泰资本管理有限公司提供<strong>2026年度主体信用评级</strong>服务。具体服务内容、资格要求及比选文件获取方式详见安徽省招标投标信息网原公告。标讯已标注"3小时前"更新，需在规定时间内完成报名及响应文件递交。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ongoing -->
+                <div id="ongoing" class="section tab-content" data-category="ongoing">
+                    <div class="section-title">
+                        <span class="section-dot dot-orange"></span>
+                        📌 近期进行中（4月7日-9日新发布）
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-ongoing">进行中</span>
+                        <div class="item-title">无为市产业投资有限公司2026年度主体评级机构服务项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 无为市产业投资有限公司</span>
+                            <span class="meta-chip method">⚡ 公开招标</span>
+                            <span class="meta-chip date">📅 2026-04-07</span>
+                        </div>
+                        <div class="item-desc">
+                            为适应市场化要求，推进公司健康发展，招标选聘主体评级机构提供<strong>2026年度主体评级服务</strong>。接受现场或线上报名，详见安徽省招标采购信息网原公告原文。
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-ongoing">进行中</span>
+                        <div class="item-title">云南磨憨开发投资集团有限公司2026年度主体信用评级服务采购项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 云南磨憨开发投资集团有限公司</span>
+                            <span class="meta-chip method">⚡ 比选公告</span>
+                            <span class="meta-chip date">📅 2026-04-08</span>
+                        </div>
+                        <div class="item-desc">
+                            选聘<strong>2026年度主体信用评级服务</strong>机构，为云南磨憨开发投资集团提供主体信用评级。比选公告已发布，资格条件及响应要求详见原公告（发布于销邦招标平台）。
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-ongoing">进行中</span>
+                        <div class="item-title">湖北楚道商业保理有限公司保理债权资产支持专项计划（ABS）信用评级服务项目（第2次采购）</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 湖北楚道商业保理有限公司</span>
+                            <span class="meta-chip method">⚡ 询比采购</span>
+                            <span class="meta-chip date">📅 2026-04-09</span>
+                        </div>
+                        <div class="item-desc">
+                            为规模<span class="highlight">10亿元</span>、分<span class="highlight">3期</span>发行的保理债权ABS提供信用评级服务，包括首次评级、后续单期发行评级及年度跟踪评级。<br>
+                            <strong>采购预算：</strong><span class="money">总预算50万元</span>（首次评级15万元/次，后续单期10万元/期，年度跟踪5万元/年）<br>
+                            <strong>文件获取：</strong>即日起至4月13日（湖北交投电子采购平台）<br>
+                            <strong>响应截止：</strong>2026年4月15日 09:30
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-ongoing">进行中</span>
+                        <div class="item-title">湖南银行2026年金融债券发行资信评级机构采购项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 湖南银行股份有限公司</span>
+                            <span class="meta-chip method">⚡ 公开招标</span>
+                            <span class="meta-chip date">📅 2026-03-26</span>
+                        </div>
+                        <div class="item-desc">
+                            选聘资信评级机构，为湖南银行<span class="highlight">2026年金融债券发行</span>提供评级服务。<br>
+                            <strong>开标时间：</strong>2026年<span class="highlight">4月17日 09:30</span>（长沙市天心区友谊路413号运成大厦12楼）<br>
+                            <strong>代理机构：</strong>中科高盛咨询集团有限公司
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed -->
+                <div id="completed" class="section tab-content" data-category="done">
+                    <div class="section-title">
+                        <span class="section-dot dot-green"></span>
+                        ✅ 近期成交/结果公示
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-done">已成交</span>
+                        <div class="item-title">蜀道融资租赁（深圳）有限公司资产支持证券信用评级机构选聘</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 蜀道融资租赁（深圳）有限公司</span>
+                            <span class="meta-chip method">⚡ 公开招标</span>
+                            <span class="meta-chip date">📅 2026-04-08（公示）</span>
+                        </div>
+                        <div class="item-desc">
+                            为<span class="highlight">ABS资产支持证券</span>选聘信用评级机构。<br>
+                            <strong>中标单位：</strong>中诚信国际信用评级有限责任公司<br>
+                            <strong>中标金额：</strong><span class="money">¥750,000.00（75万元）</span><br>
+                            <strong>公示期：</strong>至2026年4月11日
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-done">已成交</span>
+                        <div class="item-title">郑州中原产业发展投资有限公司主体信用评级服务项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 郑州中原产业发展投资有限公司</span>
+                            <span class="meta-chip method">⚡ 竞争性磋商</span>
+                            <span class="meta-chip date">📅 2026-04-08（成交公告）</span>
+                        </div>
+                        <div class="item-desc">
+                            <strong>成交供应商：</strong>北京中建政研信息咨询中心<br>
+                            <strong>成交金额：</strong><span class="money">¥610,000.00（61万元）</span><br>
+                            <strong>服务目标：</strong>完成<span class="highlight">AA+信用评级</span>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="tag tag-done">已成交</span>
+                        <div class="item-title">晋能控股煤业集团有限公司2026年-2027年度企业信用评级服务项目</div>
+                        <div class="item-meta">
+                            <span class="meta-chip org">🏢 晋能控股煤业集团有限公司</span>
+                            <span class="meta-chip method">⚡ 竞争性采购</span>
+                            <span class="meta-chip date">📅 2026-04-08（公示）</span>
+                        </div>
+                        <div class="item-desc">
+                            为晋能控股煤业集团选聘2026-2027年度企业信用评级服务。<br>
+                            <strong>成交候选报价：</strong><span class="money">¥250,000.00（25万元）</span><br>
+                            <strong>公示期：</strong>至2026年4月13日
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Table -->
+                <div id="summary" class="section tab-content" data-category="all">
+                    <div class="section-title">
+                        <span class="section-dot dot-blue"></span>
+                        📊 本期公告汇总表
+                    </div>
+
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>项目名称</th>
+                                <th>招标单位</th>
+                                <th>采购方式</th>
+                                <th>发布日期</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="new-row">
+                                <td>1</td>
+                                <td class="project-name">合肥兴泰资本管理有限公司选聘2026年度主体信用评级机构项目</td>
+                                <td>合肥兴泰资本</td>
+                                <td>比选</td>
+                                <td>2026-04-10</td>
+                                <td><span style="color:#ef4444;font-weight:600">🔥 今日新</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>无为市产业投资有限公司2026年度主体评级机构服务项目</td>
+                                <td>无为市产业投资</td>
+                                <td>公开招标</td>
+                                <td>2026-04-07</td>
+                                <td><span style="color:#f97316;font-weight:600">进行中</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>云南磨憨开发投资集团2026年度主体信用评级服务采购项目</td>
+                                <td>云南磨憨开发投资集团</td>
+                                <td>比选</td>
+                                <td>2026-04-08</td>
+                                <td><span style="color:#f97316;font-weight:600">进行中</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>湖北楚道商业保理保理债权ABS信用评级服务项目（第2次）</td>
+                                <td>湖北楚道商业保理</td>
+                                <td>询比采购</td>
+                                <td>2026-04-09</td>
+                                <td><span style="color:#f97316;font-weight:600">进行中</span></td>
+                            </tr>
+                            <tr style="background:rgba(34, 197, 94, 0.1)">
+                                <td>5</td>
+                                <td>蜀道融资租赁ABS信用评级机构选聘（中标公告）</td>
+                                <td>蜀道融资租赁</td>
+                                <td>公开招标</td>
+                                <td>2026-04-08</td>
+                                <td><span style="color:#22c55e;font-weight:600">✅ 已成交</span></td>
+                            </tr>
+                            <tr style="background:rgba(34, 197, 94, 0.1)">
+                                <td>6</td>
+                                <td>郑州中原产业发展投资有限公司主体信用评级服务项目</td>
+                                <td>郑州中原产业发展</td>
+                                <td>竞争性磋商</td>
+                                <td>2026-04-08</td>
+                                <td><span style="color:#22c55e;font-weight:600">✅ 已成交</span></td>
+                            </tr>
+                            <tr style="background:rgba(34, 197, 94, 0.1)">
+                                <td>7</td>
+                                <td>晋能控股煤业集团2026-2027年度企业信用评级服务项目</td>
+                                <td>晋能控股煤业集团</td>
+                                <td>竞争性采购</td>
+                                <td>2026-04-08</td>
+                                <td><span style="color:#22c55e;font-weight:600">✅ 已成交</span></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>湖南银行2026年金融债券发行资信评级机构采购项目</td>
+                                <td>湖南银行</td>
+                                <td>公开招标</td>
+                                <td>2026-03-26</td>
+                                <td><span style="color:#f97316;font-weight:600">进行中</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>本报告由自动化监控系统生成 · 数据仅供参考，以各平台官方公告为准</p>
+        <p style="margin-top:8px">📋 每天早上 8:30 自动更新 · <a href="https://github.com/ziyao123-y/credit-bid-reports" target="_blank">GitHub 仓库</a></p>
+    </div>
+
 </div>
 
-<div class="card">
-  <div class="card-header">
-    <span class="tag tag-new">新招标</span>
-    <span class="title">无为市产业投资有限公司<br>2026年度主体评级机构服务项目</span>
-  </div>
-  <div class="card-body">
-    <table>
-      <tr><td class="lc">招标单位</td><td class="vc">无为市产业投资有限公司</td></tr>
-      <tr><td class="lc">采购方式</td><td class="vc"><span class="mtag mo">公开招标</span></td></tr>
-      <tr><td class="lc">发布时间</td><td class="vc">2026-04-07</td></tr>
-      <tr><td class="lc">预算金额</td><td class="vc"><span class="hl">28万元</span></td></tr>
-      <tr><td class="lc">投标截止</td><td class="vc">2026-04-15 09:30</td></tr>
-      <tr><td class="lc">评标方法</td><td class="vc">综合评估法</td></tr>
-      <tr><td class="lc">资金来源</td><td class="vc">100% 自筹资金</td></tr>
-      <tr><td class="lc">信息来源</td><td class="vc">安徽省招标投标信息网 / 千里马招标网</td></tr>
-    </table>
-  </div>
-</div>
+<script>
+    // Tab switching
+    function showTab(tab) {
+        // Update buttons
+        document.querySelectorAll('.nav-tab').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
 
-<div class="card">
-  <div class="card-header">
-    <span class="tag tag-new">新招标</span>
-    <span class="title">云南磨憨开发投资集团有限公司<br>2026年度主体信用评级服务采购项目</span>
-  </div>
-  <div class="card-body">
-    <table>
-      <tr><td class="lc">招标单位</td><td class="vc">云南磨憨开发投资集团有限公司</td></tr>
-      <tr><td class="lc">采购方式</td><td class="vc"><span class="mtag mc">竞争性比选</span></td></tr>
-      <tr><td class="lc">发布时间</td><td class="vc">2026-04-08</td></tr>
-      <tr><td class="lc">最高限价</td><td class="vc"><span class="hl">25万元</span></td></tr>
-      <tr><td class="lc">服务期限</td><td class="vc">自提供完整资料起 45 日历天内完成评级并提交正式报告，报告有效期一年</td></tr>
-      <tr><td class="lc">资质要求</td><td class="vc">须为<span class="hlb">中国人民银行认可的信用评级机构</span>（需提供备案截图或批复）</td></tr>
-      <tr><td class="lc">财务要求</td><td class="vc">提供 2024 或 2025 年度经审计的财务报表</td></tr>
-      <tr><td class="lc">信誉要求</td><td class="vc">未被列入"信用中国"失信被执行人、重大税收违法失信主体</td></tr>
-      <tr><td class="lc">信息来源</td><td class="vc">中招国际招标 / 中国招标投标公共服务平台</td></tr>
-    </table>
-  </div>
-</div>
+        // Update content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
 
-<div class="card">
-  <div class="card-header">
-    <span class="tag tag-result">成交公告</span>
-    <span class="title">郑州中原产业发展投资有限公司<br>主体信用评级服务项目</span>
-  </div>
-  <div class="card-body">
-    <table>
-      <tr><td class="lc">招标单位</td><td class="vc">郑州中原产业发展投资有限公司</td></tr>
-      <tr><td class="lc">采购方式</td><td class="vc"><span class="mtag mc">竞争性磋商</span></td></tr>
-      <tr><td class="lc">公告日期</td><td class="vc">2026-03-24（磋商）</td></tr>
-      <tr><td class="lc">评审日期</td><td class="vc">2026-04-08</td></tr>
-      <tr><td class="lc">成交金额</td><td class="vc"><span class="hl">61万元</span></td></tr>
-      <tr><td class="lc">成交供应商</td><td class="vc">北京中建政研信息咨询中心</td></tr>
-      <tr><td class="lc">服务目标</td><td class="vc">完成 AA+ 信用评级</td></tr>
-      <tr><td class="lc">信息来源</td><td class="vc">河南省招标投标协会</td></tr>
-    </table>
-  </div>
-</div>
+        if (tab === 'all') {
+            document.getElementById('summary').classList.add('active');
+        } else if (tab === 'new') {
+            document.getElementById('today-new').classList.add('active');
+        } else if (tab === 'ongoing') {
+            document.getElementById('ongoing').classList.add('active');
+        } else if (tab === 'done') {
+            document.getElementById('completed').classList.add('active');
+        }
+    }
 
-<div class="card">
-  <div class="card-header">
-    <span class="tag tag-other">其他公告</span>
-    <span class="title">2026年主体信用评级服务公告</span>
-  </div>
-  <div class="card-body">
-    <table>
-      <tr><td class="lc">发布时间</td><td class="vc">2026-04-07</td></tr>
-      <tr><td class="lc">地区</td><td class="vc">安徽</td></tr>
-      <tr><td class="lc">招标预算</td><td class="vc"><span class="hl">26万元</span></td></tr>
-      <tr><td class="lc">信息来源</td><td class="vc">采招网（bidcenter.com.cn）</td></tr>
-    </table>
-  </div>
-</div>
+    // Smooth scroll for sidebar links
+    document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
 
-<div class="note">
-  <strong>💡 今日小结：</strong>今日招标市场较为活跃，共有 <strong>2条新招标公告</strong>（安徽无为 28万 和云南磨憨 25万，预算均在25-28万元区间），以及 <strong>1条成交公告</strong>（郑州中原产投，61万元）。<br><br>
-  如有合作意向，建议重点关注：<br>
-  · <strong>云南磨憨项目</strong> — 资质要求明确，时间较近<br>
-  · <strong>无为市项目</strong> — 投标截止 <strong>4月15日</strong>，时间紧迫
-</div>
-
-<div class="footer">
-  <hr>
-  <div>📋 数据来源：安徽省招标投标信息网、中国招标投标公共服务平台、中招国际招标、采招网、千里马招标网、河南省招标投标协会</div>
-  <div style="margin-top:6px">⚠️ 详情请以各平台原公告为准，内容由小虾米自动整理</div>
-</div>
-
-</div>
 </body>
 </html>
