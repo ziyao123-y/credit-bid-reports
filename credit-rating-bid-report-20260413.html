@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信用评级招标公告日报 2026-04-13</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+    box-shadow: 0 2px 12px rgba(26,35,126,0.3);
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+  .header .date-badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .stat-card .num { font-size: 22px; font-weight: 700; }
+  .stat-card .label { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a237e;
+    padding: 0 0 10px;
+    border-bottom: 2px solid #3949ab;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .dot {
+    width: 8px; height: 8px;
+    background: #3949ab;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .notice-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tag-new { background: #ff5252; color: #fff; }
+  .tag-hot { background: #ff6d00; color: #fff; }
+
+  .table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead tr {
+    background: #e8eaf6;
+  }
+  thead th {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #283593;
+    text-align: left;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f5f7ff; }
+  tbody td {
+    padding: 12px 14px;
+    font-size: 13px;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .proj-name {
+    font-weight: 600;
+    color: #1a237e;
+    min-width: 200px;
+  }
+  .proj-name a {
+    color: #1a237e;
+    text-decoration: none;
+  }
+  .proj-name a:hover { text-decoration: underline; }
+  .method-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .method-cscr { background: #e3f2fd; color: #1565c0; }
+  .method-xunbi { background: #e8f5e9; color: #2e7d32; }
+  .method-xunjia { background: #fff3e0; color: #e65100; }
+  .method-jingtan { background: #fce4ec; color: #880e4f; }
+  .method-kaibiao { background: #ede7f6; color: #4527a0; }
+  .budget-cell { color: #c62828; font-weight: 700; }
+  .date-cell { color: #555; white-space: nowrap; }
+  .deadline-cell { color: #e65100; font-weight: 600; white-space: nowrap; }
+
+  .key-req {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .key-req ul {
+    padding-left: 16px;
+  }
+  .key-req li { margin-bottom: 2px; }
+
+  .highlight-row td { background: #fffde7 !important; }
+  .highlight-row:hover td { background: #fff9c4 !important; }
+
+  .section-note {
+    background: #e8eaf6;
+    border-left: 4px solid #3949ab;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #444;
+  }
+
+  .footer {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    padding: 20px;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+  }
+  .footer a { color: #3949ab; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .header { padding: 20px 16px; }
+    .container { padding: 16px 10px; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 8px 10px; }
+    .proj-name { min-width: 140px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>📋 信用评级招标公告日报</h1>
+      <div class="subtitle">覆盖采招网 · 中国招标投标公共服务平台 · 广西投资集团采购平台 · 安徽省招标投标信息网等</div>
+    </div>
+    <div class="date-badge">🗓 2026年4月13日（周一）</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">6</div>
+      <div class="label">今日收录公告</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">1</div>
+      <div class="label">今日新发布</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">5</div>
+      <div class="label">近期进行中</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">≈156万</div>
+      <div class="label">本期预算合计（元）</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 今日新发布 -->
+  <div class="section-title">
+    <span class="dot"></span>
+    今日新发布（2026-04-13）
+    <span class="notice-tag tag-new">NEW</span>
+  </div>
+  <div class="section-note">
+    以下公告为今日（2026年4月13日）最新发布，请重点关注。
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>招标项目名称</th>
+          <th>招标单位</th>
+          <th>采购方式</th>
+          <th>预算金额</th>
+          <th>发布时间</th>
+          <th>截止时间</th>
+          <th>关键要求</th>
+          <th>来源平台</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td class="proj-name">广西中小企业融资担保有限公司2026年度主体信用评级服务项目</td>
+          <td>广西中小企业融资担保有限公司</td>
+          <td><span class="method-badge method-xunbi">询比采购</span></td>
+          <td class="budget-cell">18万元</td>
+          <td class="date-cell">2026-04-13</td>
+          <td class="deadline-cell">2026-04-18 18:00</td>
+          <td class="key-req">
+            <ul>
+              <li>须具备评级全资质</li>
+              <li>主要人员须持证券执业资格，从业≥5年</li>
+              <li>全流程电子化采购，需CA证书</li>
+              <li>合同期：2026年4月—2027年8月</li>
+              <li>采购文件免费获取（4月13-15日）</li>
+            </ul>
+          </td>
+          <td>广西投资集团电子采购平台</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 近期（4月10日前后）进行中公告 -->
+  <div class="section-title">
+    <span class="dot"></span>
+    近期发布·进行中公告（2026年4月7日—4月12日）
+    <span class="notice-tag tag-hot">近期</span>
+  </div>
+  <div class="section-note">
+    以下公告为近期（4月7日至12日）各平台发布，截止日期尚未届满，仍处于有效招标期内。
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>招标项目名称</th>
+          <th>招标单位</th>
+          <th>采购方式</th>
+          <th>预算金额</th>
+          <th>发布时间</th>
+          <th>截止时间</th>
+          <th>关键要求</th>
+          <th>来源平台</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="proj-name">
+            <a href="https://www.dygxtz.com/?p=18737" target="_blank" rel="noopener">高新投信用评级服务项目</a>
+          </td>
+          <td>丹阳高新区投资发展有限公司</td>
+          <td><span class="method-badge method-cscr">竞争性磋商</span></td>
+          <td class="budget-cell">28万元</td>
+          <td class="date-cell">2026-04-10</td>
+          <td class="deadline-cell">2026-04-21 15:00</td>
+          <td class="key-req">
+            <ul>
+              <li>须具备银行间债券市场、证券交易所及企业债券市场评级资质</li>
+              <li>资格后审；标书费500元</li>
+              <li>不接受联合体；不收投标保证金</li>
+              <li>开标地点：丹阳市迈村新城北1门云阳街道农村产权交易服务中心</li>
+            </ul>
+          </td>
+          <td>丹阳高新投官网</td>
+        </tr>
+        <tr>
+          <td class="proj-name">宿州市华辰实业有限公司2026年主体信用评级服务采购</td>
+          <td>宿州市华辰实业有限公司</td>
+          <td><span class="method-badge method-cscr">竞争性磋商</span></td>
+          <td class="budget-cell">28万元</td>
+          <td class="date-cell">2026-04-10</td>
+          <td class="deadline-cell">2026-04-21 15:00</td>
+          <td class="key-req">
+            <ul>
+              <li>选取1家评级机构提供主体信用评级服务</li>
+              <li>不接受联合体磋商</li>
+              <li>资金100%自筹，综合评估法评审</li>
+              <li>报名：邮件发送营业执照等资料至86050100@qq.com</li>
+            </ul>
+          </td>
+          <td>宿州市高新建设投资集团</td>
+        </tr>
+        <tr>
+          <td class="proj-name">
+            <a href="https://www.bidcenter.com.cn/news-413159113-1.html" target="_blank" rel="noopener">来安县城乡文化旅游投资发展有限公司2026年主体信用评级项目</a>
+          </td>
+          <td>来安县城乡文化旅游投资发展有限公司</td>
+          <td><span class="method-badge method-cscr">竞争性磋商</span></td>
+          <td class="budget-cell">—</td>
+          <td class="date-cell">2026-04-10</td>
+          <td class="deadline-cell">待查</td>
+          <td class="key-req">
+            <ul>
+              <li>项目编号：LACG-202604-051</li>
+              <li>主体信用评级服务采购</li>
+              <li>来源：中国采招网及来安县政府采购网</li>
+            </ul>
+          </td>
+          <td>采招网 / 来安县政府采购网</td>
+        </tr>
+        <tr>
+          <td class="proj-name">
+            <a href="https://www.bidcenter.com.cn/news-413256722-1.html" target="_blank" rel="noopener">电投水电发债主体及债项信用评级机构选聘公开竞谈采购</a>
+          </td>
+          <td>国家电投集团远达环保股份有限公司</td>
+          <td><span class="method-badge method-jingtan">竞争性谈判</span></td>
+          <td class="budget-cell">—</td>
+          <td class="date-cell">2026-04-10</td>
+          <td class="deadline-cell">2026-04-15 17:00</td>
+          <td class="key-req">
+            <ul>
+              <li>覆盖发债主体信用评级及债项信用评级</li>
+              <li>购标截止：2026-04-14 17:00</li>
+              <li>交付时间：2026年6月15日</li>
+              <li>联系人：王帆（010-68809287）</li>
+            </ul>
+          </td>
+          <td>采招网 / 电力能源招标网</td>
+        </tr>
+        <tr>
+          <td class="proj-name">
+            <a href="https://www.bidcenter.com.cn/news-413363163-1.html" target="_blank" rel="noopener">宜宾发展产城投资有限公司2026年主体信用评级服务询价函</a>
+          </td>
+          <td>宜宾发展产城投资有限公司</td>
+          <td><span class="method-badge method-xunjia">询价采购</span></td>
+          <td class="budget-cell">—</td>
+          <td class="date-cell">2026-04-10</td>
+          <td class="deadline-cell">待查</td>
+          <td class="key-req">
+            <ul>
+              <li>2026年度主体信用评级服务</li>
+              <li>来源：中国采招网</li>
+            </ul>
+          </td>
+          <td>采招网</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 近期跟踪预警 -->
+  <div class="section-title">
+    <span class="dot"></span>
+    近期截止预警（需重点关注）
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>项目名称</th>
+          <th>招标单位</th>
+          <th>截止时间</th>
+          <th>预算</th>
+          <th>状态提示</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td class="proj-name">电投水电发债主体及债项信用评级机构选聘</td>
+          <td>国家电投集团远达环保股份有限公司</td>
+          <td class="deadline-cell">🔴 2026-04-15 17:00（明后天截止）</td>
+          <td>—</td>
+          <td>购标截止明日(4月14日)，报价截止4月15日，紧急！</td>
+        </tr>
+        <tr>
+          <td class="proj-name">广西中小企业融资担保有限公司2026年度主体信用评级服务项目</td>
+          <td>广西中小企业融资担保有限公司</td>
+          <td class="deadline-cell">🟡 2026-04-18 18:00</td>
+          <td class="budget-cell">18万元</td>
+          <td>今日发布，文件获取截至4月15日</td>
+        </tr>
+        <tr>
+          <td class="proj-name">高新投信用评级服务项目</td>
+          <td>丹阳高新区投资发展有限公司</td>
+          <td class="deadline-cell">🟡 2026-04-21 15:00</td>
+          <td class="budget-cell">28万元</td>
+          <td>文件获取截至4月16日</td>
+        </tr>
+        <tr>
+          <td class="proj-name">宿州市华辰实业有限公司2026年主体信用评级服务采购</td>
+          <td>宿州市华辰实业有限公司</td>
+          <td class="deadline-cell">🟡 2026-04-21 15:00</td>
+          <td class="budget-cell">28万元</td>
+          <td>文件获取截至4月20日</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 背景信息 -->
+  <div class="section-title">
+    <span class="dot"></span>
+    背景参考：中国货币网近期评级报告发布动态
+  </div>
+  <div class="section-note">
+    来源：中国货币网（chinamoney.com.cn）评级公告栏目，2026年4月上旬。
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>发行人</th>
+          <th>评级内容</th>
+          <th>评级机构</th>
+          <th>发布日期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>国网新源控股有限公司</td>
+          <td>2025年度信用评级报告</td>
+          <td>东方金诚</td>
+          <td class="date-cell">2026-04-07</td>
+        </tr>
+        <tr>
+          <td>四川广安爱众股份有限公司</td>
+          <td>2026年度主体信用评级报告</td>
+          <td>东方金诚</td>
+          <td class="date-cell">2026-04-07</td>
+        </tr>
+        <tr>
+          <td>奇安信科技集团股份有限公司</td>
+          <td>主体信用评级报告</td>
+          <td>东方金诚</td>
+          <td class="date-cell">2026-04-07</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 免责声明 -->
+  <div style="background:#fff;border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:12px;color:#888;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+    <strong>📌 说明：</strong>
+    本报告基于公开网络信息整理，数据来源包括：采招网（bidcenter.com.cn）、广西投资集团电子采购平台（gigeps.com）、宿州市高新建设投资集团官网、丹阳高新投官网、安徽省招标投标信息网（ahtba.org.cn）、电力能源招标网（dlnyzb.com）等。信息仅供参考，具体采购条件以原始公告为准，请访问相应来源平台核实。
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>🤖 本报告由自动化系统于 2026年4月13日 09:59 自动生成 &nbsp;|&nbsp; 下次更新：2026年4月14日 10:00</p>
+  <p style="margin-top:6px;">数据来源：采招网 · 广西投资集团电子采购平台 · 安徽省招标投标信息网 · 中国货币网等</p>
+</div>
+
+</body>
+</html>
