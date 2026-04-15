@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用评级招标公告日报 - 2026年4月15日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #888;
+            font-size: 1.1em;
+        }
+        .report-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .report-title {
+            font-size: 1.8em;
+            color: #00d9ff;
+        }
+        .report-date {
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-card.new {
+            background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,217,255,0.2));
+            border-color: #00ff88;
+        }
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+        .stat-card.new .number {
+            color: #00ff88;
+        }
+        .stat-card .label {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .section-title {
+            font-size: 1.3em;
+            color: #00ff88;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::before {
+            content: "●";
+            color: #00ff88;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            background: rgba(0,217,255,0.1);
+            color: #00d9ff;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        .badge-new {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        .badge-progress {
+            background: rgba(0,217,255,0.2);
+            color: #00d9ff;
+        }
+        .badge-done {
+            background: rgba(255,165,0,0.2);
+            color: #ffa500;
+        }
+        .budget {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+        }
+        .footer a {
+            color: #00d9ff;
+        }
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .platform-link {
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+        }
+        .summary-box {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .summary-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .summary-box ul {
+            margin-left: 20px;
+            color: #ccc;
+        }
+        .summary-box li {
+            margin: 5px 0;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            table {
+                font-size: 0.85em;
+            }
+            th, td {
+                padding: 10px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 信用评级招标公告日报</h1>
+            <p>实时监控全国信用评级相关招标公告 | 生成时间：2026年4月15日 10:01</p>
+        </div>
+
+        <div class="report-section">
+            <div class="report-header">
+                <div>
+                    <h2 class="report-title">📋 2026年4月15日 信用评级招标公告日报</h2>
+                </div>
+                <span class="report-date">🆕 今日最新</span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card new">
+                    <div class="number">4</div>
+                    <div class="label">今日新发布</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">5</div>
+                    <div class="label">近期进行中</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">7</div>
+                    <div class="label">已成交公示</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">¥338万+</div>
+                    <div class="label">总预算金额</div>
+                </div>
+            </div>
+
+            <h3 class="section-title">🔥 今日新发布公告（4条）</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>项目名称</th>
+                        <th>招标单位</th>
+                        <th>地区</th>
+                        <th>采购方式</th>
+                        <th>预算</th>
+                        <th>截止时间</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>泗阳县嘉科工业发展集团有限公司2026-2028年主体信用评级服务项目</strong></td>
+                        <td>泗阳县嘉科工业发展集团有限公司</td>
+                        <td>江苏·宿迁</td>
+                        <td>竞争性磋商</td>
+                        <td class="budget">30万元/年</td>
+                        <td>4月21日 17:30</td>
+                        <td><span class="badge badge-new">🆕 今日新发布</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>水务公司2026年度信用等级评价服务</strong></td>
+                        <td>辽宁省环保集团清源水务有限公司</td>
+                        <td>辽宁·沈阳</td>
+                        <td>公开招标</td>
+                        <td class="budget">—</td>
+                        <td>4月17日 16:00</td>
+                        <td><span class="badge badge-new">🆕 今日新发布</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>余姚市融湾建设集团有限公司主体信用评级委托项目</strong></td>
+                        <td>余姚市融湾建设集团有限公司</td>
+                        <td>浙江·余姚</td>
+                        <td>全过程咨询比选</td>
+                        <td class="budget">—</td>
+                        <td>待定</td>
+                        <td><span class="badge badge-new">🆕 今日新发布</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>河南循环科技产业集团有限公司2026年度主体信用评级服务项目</strong></td>
+                        <td>河南循环科技产业集团有限公司</td>
+                        <td>青海</td>
+                        <td>谈判采购</td>
+                        <td class="budget">—</td>
+                        <td>待定</td>
+                        <td><span class="badge badge-new">🆕 今日新发布</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="section-title">📌 近期进行中公告（5条）</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>项目名称</th>
+                        <th>招标单位</th>
+                        <th>地区</th>
+                        <th>预算</th>
+                        <th>截止时间</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>广西中小企业融资担保有限公司2026年度主体信用评级服务项目</strong></td>
+                        <td>广西中小企业融资担保有限公司</td>
+                        <td>广西</td>
+                        <td class="budget">18万元</td>
+                        <td>4月18日 18:00</td>
+                        <td><span class="badge badge-progress">📌 进行中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>无为市产业投资有限公司2026年度主体评级机构服务项目</strong></td>
+                        <td>无为市产业投资有限公司</td>
+                        <td>安徽·无为</td>
+                        <td class="budget">28万元</td>
+                        <td>4月15日 09:30（今日截止）</td>
+                        <td><span class="badge badge-progress">📌 今日截止</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>湖北楚道商业保理有限公司ABS主体信用评级服务项目</strong></td>
+                        <td>湖北楚道商业保理有限公司</td>
+                        <td>湖北</td>
+                        <td class="budget">50万元</td>
+                        <td>4月15日 14:00（今日截止）</td>
+                        <td><span class="badge badge-progress">📌 今日截止</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>湖南银行2026年金融债券发行资信评级机构采购项目</strong></td>
+                        <td>湖南银行股份有限公司</td>
+                        <td>湖南·长沙</td>
+                        <td class="budget">—</td>
+                        <td>4月17日 09:30</td>
+                        <td><span class="badge badge-progress">📌 进行中</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>广西西江开发投资集团有限公司关于2026年度主体信用评级服务及相关服务询价公告</strong></td>
+                        <td>广西西江开发投资集团有限公司</td>
+                        <td>广西</td>
+                        <td class="budget">—</td>
+                        <td>待定</td>
+                        <td><span class="badge badge-progress">📌 进行中</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="section-title">✅ 近期成交公告（7条）</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>项目名称</th>
+                        <th>招标单位</th>
+                        <th>成交金额</th>
+                        <th>成交供应商</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>武胜县嘉陵水利集团有限公司主体信用评级综合服务机构采购项目</strong></td>
+                        <td>武胜县嘉陵水利集团有限公司</td>
+                        <td class="budget">279万元</td>
+                        <td>成都市联合凯信企业管理咨询有限公司</td>
+                    </tr>
+                    <tr>
+                        <td><strong>蜀道融资租赁（深圳）有限公司资产支持证券信用评级机构选聘</strong></td>
+                        <td>蜀道融资租赁（深圳）有限公司</td>
+                        <td class="budget">75万元</td>
+                        <td>中诚信国际信用评级有限责任公司</td>
+                    </tr>
+                    <tr>
+                        <td><strong>南宁威宁资产经营集团有限责任公司2026年-2028年主体信用评级服务项目</strong></td>
+                        <td>南宁威宁资产经营集团有限责任公司</td>
+                        <td class="budget">60万元（三年）</td>
+                        <td>中诚信国际信用评级有限责任公司</td>
+                    </tr>
+                    <tr>
+                        <td><strong>郑州中原产业发展投资有限公司主体信用评级服务项目</strong></td>
+                        <td>郑州中原产业发展投资有限公司</td>
+                        <td class="budget">61万元</td>
+                        <td>北京中建政研信息咨询中心</td>
+                    </tr>
+                    <tr>
+                        <td><strong>晋能控股煤业集团有限公司2026年-2027年度企业信用评级服务项目</strong></td>
+                        <td>晋能控股煤业集团有限公司</td>
+                        <td class="budget">25万元</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td><strong>马鞍山资产公司2026年度主体信用评级项目</strong></td>
+                        <td>马鞍山资产公司</td>
+                        <td class="budget">—</td>
+                        <td>2026年4月13日成交</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中江振鑫产业发展集团有限公司2026年度企业主体信用评级服务采购项目</strong></td>
+                        <td>中江振鑫产业发展集团有限公司</td>
+                        <td class="budget">—</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="summary-box">
+                <h4>💡 今日小结</h4>
+                <ul>
+                    <li>今日新增 <strong>4条</strong> 公告，招标市场活跃度较高</li>
+                    <li>今日新增亮点：
+                        <ul>
+                            <li><strong>泗阳县嘉科项目</strong> - 预算30万元/年，三年合同（90万+），4月21日截止，竞争性磋商</li>
+                            <li><strong>辽宁省环保集团清源水务</strong> - 信用等级评价服务，4月17日截止</li>
+                            <li><strong>余姚市融湾建设集团</strong> - 主体信用评级委托项目，全过程咨询比选</li>
+                            <li><strong>河南循环科技产业集团</strong> - 谈判采购方式</li>
+                        </ul>
+                    </li>
+                    <li>紧急提醒：以下项目<strong>今日（4月15日）截止</strong>：
+                        <ul>
+                            <li>无为市产业投资有限公司项目（预算28万，09:30截止）</li>
+                            <li>湖北楚道商业保理ABS项目（预算50万，14:00截止）</li>
+                        </ul>
+                    </li>
+                    <li>即将截止：<strong>广西中小企业融资担保项目</strong>（4月18日18:00，预算18万）</li>
+                </ul>
+            </div>
+
+            <h3 class="section-title">🔗 招标平台入口</h3>
+            <div class="platform-links">
+                <span class="platform-link">🔍 <a href="https://www.ccgp.gov.cn" target="_blank">中国政府采购网</a></span>
+                <span class="platform-link">🔍 <a href="http://www.cebpubservice.com" target="_blank">中国招标投标公共服务平台</a></span>
+                <span class="platform-link">🔍 <a href="https://www.caizhaowang.com" target="_blank">采招网</a></span>
+                <span class="platform-link">🔍 <a href="https://www.qianlima.com" target="_blank">千里马招标网</a></span>
+                <span class="platform-link">🔍 <a href="https://www.rccchina.com" target="_blank">RCC瑞达恒</a></span>
+                <span class="platform-link">🔍 <a href="http://www.ahzbtb.gov.cn" target="_blank">安徽省招标投标信息网</a></span>
+            </div>
+
+            <p style="color: #666; margin-top: 20px; font-size: 0.9em;">
+                📋 数据来源：Web搜索 + 各主流招投标平台（采招网、中国政府采购网、安徽省招标投标信息网、RCC瑞达恒、千里马、乙方宝等）
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>⚠️ 详情请以各平台原公告为准，内容由小虾米自动整理</p>
+            <p>📋 数据来源：
+                <a href="http://www.ahzbtb.gov.cn" target="_blank">安徽省招标投标信息网</a> |
+                <a href="http://www.cebpubservice.com" target="_blank">中国招标投标公共服务平台</a> |
+                <a href="https://www.caizhaowang.com" target="_blank">采招网</a> |
+                <a href="https://www.qianlima.com" target="_blank">千里马招标网</a>
+            </p>
+            <p style="margin-top: 15px;">🔗 <a href="https://github.com/ziyao123-y/credit-bid-reports" target="_blank">GitHub 仓库</a> | 生成时间：2026年4月15日 10:01</p>
+        </div>
+    </div>
+</body>
+</html>
